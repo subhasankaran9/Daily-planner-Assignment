@@ -5,8 +5,8 @@
 let userTaskInput=document.getElementById("taskInput");
 let useraddTaskButton=document.getElementById("addTaskButton");
 let usershowTaskButton = document.getElementById("showTaskButton");
-let userTaskList=document.getElementById("TaskList");
 let userTaskArray=document.getElementById("TaskArray");
+let userrenderTask=document.getElementById("RenderTask");
 
 //    Step 2: Load Tasks from Local Storage  
 
@@ -20,8 +20,6 @@ function getTasksFromLocalStorage() {
 }
 
   console.log(taskArray);
-
-
   
 
 
@@ -47,6 +45,7 @@ function deleteTask(index) {
 
 //     createTaskElement(taskObj) Function
 
+// 3.5 Implement the createTaskElement(taskObj) Function
 function createTaskElement(taskObj) {
     const taskItem = document.createElement("li");
     taskItem.classList.add("taskItem");
@@ -65,20 +64,21 @@ function createTaskElement(taskObj) {
     taskTextElement.classList.add("taskText");
     taskTextElement.textContent = taskObj.text;
     taskTextElement.classList.toggle("completed", taskObj.completed);
-    
-
-
   
-userTaskList.innerHTML = " "
- for (let i = 0; i < taskArray.length; i++) {
-        let taskElement = createTaskElement(taskArray[i]);
-        userTaskList.appendChild(taskElement);
-        
-        
-        
-    }
+    const removeButton = document.createElement("button");
+    removeButton.classList.add("removeButton");
+    removeButton.textContent = "X";
+    removeButton.addEventListener("click", function () {
+        deleteTask(taskObj);
+        renderTasks();
+    });
+  
+    taskItem.appendChild(checkbox);
+    taskItem.appendChild(taskTextElement);
+    taskItem.appendChild(removeButton);
+  
+    return taskItem;
 }
-
     // Attach an Event Listener to Add Task Button
 
  useraddTaskButton.addEventListener("click", function() {
@@ -92,26 +92,34 @@ userTaskList.innerHTML = " "
 
     const newTask = createTask(taskText);
 
-   
-    console.log(typeof taskArray)
+
      taskArray.push(newTask);
 
     updateTasksInLocalStorage()
 
     userTaskInput.value = ""
-
-    // renderTasks()
+    
+renderTask();
+       
 });
 
 
 // Render Tasks on Page Load
 
 function renderTask() {
-usershowTaskButton.addEventListener("click", function(){
-if (taskArray !== 0) console.log(taskArray)
-//render tasks();
-});
+const userTaskList=document.getElementById("TaskList");
+
+userTaskList.innerHTML= "";
+
+for (let i=0; i< taskArray.length; i++)
+{
+    const taskElement=createTaskElement(taskArray[i]);
+userTaskList.appendChild(taskElement);
+}
 
 }
+
+
+renderTask();
 
 

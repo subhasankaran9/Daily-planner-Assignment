@@ -1,7 +1,7 @@
 body {
     width: 300px;
     font-family: "Arial", sans-serif;
-    background-color: #f0f0f0;
+    background-color: #cfc2c2;
     padding: 20px;
     margin: 0;
     box-sizing: border-box;
@@ -31,7 +31,7 @@ h1 {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #9e9ca1;
+    background-color: #584f66;
     color: white;
     font-size: 16px;
     border: none;
@@ -44,7 +44,7 @@ h1 {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #8a7070;
+    background-color: #a16767;
     color: white;
     font-size: 16px;
     border: none;
@@ -73,7 +73,7 @@ h1 {
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: rgb(39, 27, 27);
+    background-color: rgb(163, 78, 78);
     margin-bottom: 10px;
     transition: background-color 0.3s ease;
 }
@@ -92,7 +92,7 @@ h1 {
     background: none;
     border: none;
     cursor: pointer;
-    color: rgb(34, 31, 31);
+    color: rgb(132, 25, 25);
     font-size: 16px;
     transition: color 0.3s ease;
 }
