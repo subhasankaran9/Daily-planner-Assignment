@@ -20,6 +20,8 @@ function getTasksFromLocalStorage() {
 }
 
   console.log(taskArray);
+
+
   
 
 
